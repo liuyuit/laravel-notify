@@ -12,10 +12,10 @@ class TestController extends Controller
 {
     public function index()
     {
-        $user = User::find(1);
+/*        $user = User::find(1);
         $user->notify(new InvoicePaid());
 
-        Notification::send($user, new InvoicePaid());
+        Notification::send($user, new InvoicePaid());*/
 
         return response('hello laravel');
     }

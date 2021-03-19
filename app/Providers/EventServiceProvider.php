@@ -18,6 +18,9 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'App\Events\OrderShipped' => [
+            'App\Listeners\SendShipmentNotification',
+        ],
     ];
 
     /**
@@ -28,5 +31,15 @@ class EventServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+    }
+
+    /**
+     *  确定是否应自动发现事件和侦听器
+     * 当 Laravel 找到以 handle 开头的监听器类方法时，Laravel 会将这些方法注册为方法签名中类型提示的事件的事件监听器：
+     * @return bool
+     */
+    public function shouldDiscoverEvents()
+    {
+        return true;
     }
 }
