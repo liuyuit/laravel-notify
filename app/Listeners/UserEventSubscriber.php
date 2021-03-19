@@ -2,29 +2,45 @@
 
 namespace App\Listeners;
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
+use App\Events\Login;
+use App\Events\Logout;
 
 class UserEventSubscriber
 {
     /**
-     * Create the event listener.
-     *
-     * @return void
+     * 处理用户登录事件
+     * @param $event Login
      */
-    public function __construct()
-    {
-        //
+    public function handleUserLogin($event) {
+        $event->user->login_times += 1;
+        $event->user->save();
     }
 
     /**
-     * Handle the event.
+     * 处理用户注销事件
+     * @param $event Logout
+     */
+    public function handleUserLogout($event) {
+        $event->user->logout_times += 1;
+        $event->user->save();
+    }
+
+    /**
+     * 为事件订阅者注册监听器
      *
-     * @param  object  $event
+     * @param  \Illuminate\Events\Dispatcher  $events
      * @return void
      */
-    public function handle($event)
+    public function subscribe($events)
     {
-        //
+        $events->listen(
+            Login::class,
+            [UserEventSubscriber::class, 'handleUserLogin']
+        );
+
+        $events->listen(
+            Logout::class,
+            [UserEventSubscriber::class, 'handleUserLogout']
+        );
     }
 }

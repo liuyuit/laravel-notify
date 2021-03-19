@@ -20,4 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::any('/test/test', 'App\Http\Controllers\Test\TestController@index');
 Route::any('/order/ship', 'App\Http\Controllers\OrderController@ship');
+Route::any('/login', 'App\Http\Controllers\LoginController@index');
+Route::any('/login', 'App\Http\Controllers\LoginController@index');
+Route::any('/logout', 'App\Http\Controllers\LogoutController@index');
 
