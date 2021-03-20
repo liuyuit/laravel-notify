@@ -26,7 +26,7 @@ window.Echo = new Echo({
     host: window.location.hostname + ':6001'
 });
 var orderId = 1;
-window.Echo.private(`order.${orderId}`)
+window.Echo.channel(`order.${orderId}`)
     .listen('ShippingStatusUpdated', (e) => {
         console.log(e.update);
         console.log(e);

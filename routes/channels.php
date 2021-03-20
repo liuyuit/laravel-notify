@@ -19,8 +19,8 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 });
 
 
-Broadcast::channel('order.{orderId}', function ($user, $orderId) {
-    return $user->id == Order::findOrFail($orderId)->uid;
+Broadcast::channel('order.{orderId}', function ($orderId) {
+    return true;
 });
 
 /*Broadcast::channel('order.{orderId}', function ($user, $orderId) {

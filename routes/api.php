@@ -14,12 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::any('/test/test', 'App\Http\Controllers\Test\TestController@index');
 Route::any('/order/ship', 'App\Http\Controllers\OrderController@ship');
+Route::any('/order/shipping-status', 'App\Http\Controllers\ShippingStatusController@index');
 Route::any('/login', 'App\Http\Controllers\LoginController@index');
 Route::any('/login', 'App\Http\Controllers\LoginController@index');
 Route::any('/logout', 'App\Http\Controllers\LogoutController@index');

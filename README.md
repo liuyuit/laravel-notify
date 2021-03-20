@@ -24,6 +24,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 > https://learnku.com/docs/laravel/8.x/broadcasting/9388#b04fa7
 > https://github.com/tlaverdure/laravel-echo-server
+> https://learnku.com/docs/laravel/8.x/authentication/9381
 
 ## Learning Laravel
 
