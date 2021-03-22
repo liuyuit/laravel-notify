@@ -24,4 +24,5 @@ Route::any('/order/shipping-status', 'App\Http\Controllers\ShippingStatusControl
 Route::any('/login', 'App\Http\Controllers\LoginController@index');
 Route::any('/login', 'App\Http\Controllers\LoginController@index');
 Route::any('/logout', 'App\Http\Controllers\LogoutController@index');
+Route::any('/broadcasting/auth', 'App\Http\Controllers\BroadcastController@authenticate');
 

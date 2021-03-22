@@ -18,9 +18,17 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
 });
 
-
-Broadcast::channel('order.{orderId}', function ($orderId) {
+Broadcast::channel('admin.{id}', function ($admin, $id) {
+    Log::debug('broadcast.admin');
     return true;
+    return (int) $admin->id === (int) $id;
+});
+
+
+
+Broadcast::channel('order.{orderId}', function ($user, $orderId) {
+    Log::debug('broadcast.order');
+    return $user->id === Order::findOrNew($orderId)->uid;
 });
 
 /*Broadcast::channel('order.{orderId}', function ($user, $orderId) {

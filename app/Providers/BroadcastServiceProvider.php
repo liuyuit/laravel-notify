@@ -16,6 +16,8 @@ class BroadcastServiceProvider extends ServiceProvider
     {
 //        Broadcast::routes();
 
+        Broadcast::routes(['middleware' => ['set_user_resolver']]);
+
         require base_path('routes/channels.php');
     }
 }

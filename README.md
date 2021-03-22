@@ -26,6 +26,34 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 > https://github.com/tlaverdure/laravel-echo-server
 > https://learnku.com/docs/laravel/8.x/authentication/9381
 
+
+
+## build project
+
+```
+composer install
+
+npm install
+
+cp .env.example  .env
+
+npm install -g laravel-echo-server
+
+laravel-echo-server init
+```
+
+Socket
+
+```
+npm run hot
+
+php artisan queue:listen
+
+php artisan  
+```
+
+
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.

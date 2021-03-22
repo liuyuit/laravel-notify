@@ -37,6 +37,11 @@ class ShippingStatusUpdated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('order.' . $this->update->id);
+        return new PrivateChannel('order.' . $this->update->id);
     }
+
+/*    public function broadcastAs()
+    {
+        return 'ShippingStatusUpdated';
+    }*/
 }
