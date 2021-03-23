@@ -53,7 +53,8 @@ npm run hot
 
 php artisan queue:listen
 
-php artisan  
+ laravel-echo-server start
+
 ```
 
 
