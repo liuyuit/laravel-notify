@@ -20,4 +20,9 @@ class Video extends Model
     {
         return $this->morphOne(Comment::class, 'commentable');
     }
+
+    public function tags()
+    {
+        return $this->morphTOMany(Tag::class, 'taggable');
+    }
 }

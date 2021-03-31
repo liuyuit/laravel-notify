@@ -26,13 +26,15 @@ class RelationController extends Controller
         $imageModel = Image::find(1);
         $imageable = $imageModel->imageable; // 获得父模型*/
 
-        $post = Post::find(1);
+        /*$post = Post::find(1);
         $comments = $post->comments;
         $comment = $post->comment;
 
         $video = Video::find(1);
         $commentsOfVideo = $video->comments; // 一对多多态
-        $commentOfVideo = $video->comment; // 一对一多态
+        $commentOfVideo = $video->comment; // 一对一多态*/
 
+        $post = Post::find(1);
+        $tags = $post->tags;
     }
 }
