@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Post;
 use App\Models\Video;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Http\Request;
 
 class RelationController extends Controller
@@ -36,5 +39,14 @@ class RelationController extends Controller
 
         $post = Post::find(1);
         $tags = $post->tags;
+
+        $alias = $post->getMorphClass(); // posts
+        $class = Relation::getMorphedModel($alias); // App\Models\Post
+
+    }
+
+    public function with()
+    {
+
     }
 }

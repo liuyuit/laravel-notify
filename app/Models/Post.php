@@ -23,11 +23,11 @@ class Post extends Model
 
     public function comment()
     {
-        return $this->morphOne(Comment::class, 'commentable');
+        return $this->morphOne(Comment::class, 'commentable', 'taggables');
     }
 
     public function tags()
     {
-        return $this->morphTOMany(Tag::class, 'taggable');
+        return $this->morphTOMany(Tag::class, 'taggable', 'taggables');
     }
 }

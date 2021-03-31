@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -38,5 +39,11 @@ class AppServiceProvider extends ServiceProvider
             \Log::info(' execution time: '.$query->time.'ms; '.$tmp."\n\n\t");
 
         });
+
+        // 用自定义名称代替使用完全限定类名的关联模型类型
+        Relation::morphMap([
+            'posts' => 'App\Models\Post',
+            'videos' => 'App\Models\Video',
+        ]);
     }
 }
