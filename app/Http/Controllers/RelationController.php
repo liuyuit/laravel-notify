@@ -31,8 +31,8 @@ class RelationController extends Controller
         $comment = $post->comment;
 
         $video = Video::find(1);
-        $commentsOfVideo = $video->comments;
-        $commentOfVideo = $video->comment;
+        $commentsOfVideo = $video->comments; // 一对多多态
+        $commentOfVideo = $video->comment; // 一对一多态
 
     }
 }
