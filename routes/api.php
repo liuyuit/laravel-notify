@@ -26,4 +26,5 @@ Route::any('/login', 'App\Http\Controllers\LoginController@index');
 Route::any('/logout', 'App\Http\Controllers\LogoutController@index');
 Route::any('/relation', 'App\Http\Controllers\RelationController@index');
 Route::any('/broadcasting/auth', 'App\Http\Controllers\BroadcastController@authenticate');
+Route::any('/with', 'App\Http\Controllers\RelationController@with');
 

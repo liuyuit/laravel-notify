@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
+use App\Models\Book;
 use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Post;
@@ -47,6 +49,21 @@ class RelationController extends Controller
 
     public function with()
     {
+//        $books = Book::all(); // select * from `book`
 
+        //select * from `author` where `author`.`id` = "1" limit 1
+//        select * from `author` where `author`.`id` = "1" limit 1
+//        select * from `author` where `author`.`id` = "2" limit 1
+/*        foreach ($books as $book) {
+            echo $book->author->name;
+        }*/
+
+        // select * from `book`
+        // select * from `author` where `author`.`id` in (1, 2)
+        $books = Book::with('author')->get();
+
+        foreach ($books as $book) {
+            echo $book->author->name;
+        }
     }
 }
