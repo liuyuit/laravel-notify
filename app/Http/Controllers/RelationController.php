@@ -66,4 +66,22 @@ class RelationController extends Controller
             echo $book->author->name;
         }
     }
+
+    public function create(Request $request)
+    {
+        $id = $request->input('id', 1);
+
+        $post = Post::create(['name' => 'name' . rand(100, 999)]); // insert into `posts` (`name`, `updated_at`, `created_at`) values ("name673", "2021-04-08 10:01:17", "2021-04-08 10:01:17")
+        $tags = $post->tags()->createMany(
+            [
+                // insert into `tags` (`name`, `updated_at`, `created_at`) values ("name466", "2021-04-08 10:01:17", "2021-04-08 10:01:17")
+                // insert into `taggables` (`tag_id`, `taggable_id`, `taggable_type`) values ("3", "3", "posts")
+                ['name' => 'name' . rand(100, 999)],
+
+                // insert into `tags` (`name`, `updated_at`, `created_at`) values ("name182", "2021-04-08 10:01:17", "2021-04-08 10:01:17")
+                // insert into `taggables` (`tag_id`, `taggable_id`, `taggable_type`) values ("4", "3", "posts")
+                ['name' => 'name' . rand(100, 999)],
+            ]
+        );
+    }
 }
